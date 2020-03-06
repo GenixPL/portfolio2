@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
 
   google_fonts: ^0.3.9
+  font_awesome_flutter: ^8.7.0
+  auto_size_text: ^2.1.0
 
 
 dev_dependencies:
@@ -23,3 +25,16 @@ flutter:
 
   assets:
     - assets/
+
+  fonts:
+    - family: Azonix
+      fonts:
+        - asset: fonts/Azonix.otf
+    
+    - family: Kontanter
+      fonts:
+        - asset: fonts/Kontanter.otf
+
+    - family:  MyIcons
+      fonts:
+        - asset: fonts/MyIcons.ttf
