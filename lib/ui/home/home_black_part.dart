@@ -1,7 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio2/icons/my_icons_icons.dart';
 import 'package:portfolio2/navigation/routes.dart';
+import 'package:portfolio2/themes/text_styles.dart';
 import 'package:portfolio2/ui/common/box/box.dart';
 
 class HomeBlackPart extends StatelessWidget {
@@ -51,80 +51,11 @@ class HomeBlackPart extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Box(
-                  onTap: () => _moveToPortfolio(context),
-                  width: boxSize,
-                  height: boxSize,
-                  color: Colors.amber,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        height: 20,
-                        width: 32,
-                        child: Icon(MyIcons.portfolio__1_),
-                      ),
-                      SizedBox(height: 8),
-                      AutoSizeText(
-                        'PoRtFolio',
-                        style: TextStyle(
-                          fontFamily: 'Kontanter',
-                        ),
-                        maxLines: 1,
-                      ),
-                    ],
-                  ),
-                ),
+                _buildResume(context, boxSize),
                 SizedBox(width: padding),
-                Box(
-                  onTap: () => _moveToResume(context),
-                  width: boxSize,
-                  height: boxSize,
-                  color: Colors.amber,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        height: 20,
-                        width: 32,
-                        child: Icon(Icons.account_box),
-                      ),
-                      SizedBox(height: 8),
-                      AutoSizeText(
-                        'ReSume',
-                        style: TextStyle(
-                          fontFamily: 'Kontanter',
-                        ),
-                        maxLines: 1,
-                      ),
-                    ],
-                  ),
-                ),
+                _buildPortfolio(context, boxSize),
                 SizedBox(width: padding),
-                Box(
-                  onTap: () => _moveToContact(context),
-                  width: boxSize,
-                  height: boxSize,
-                  color: Colors.amber,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        height: 20,
-                        width: 32,
-                        child: Icon(Icons.comment),
-                      ),
-                      SizedBox(height: 8),
-                      AutoSizeText(
-                        'coNtAct',
-                        style: TextStyle(
-                          fontFamily: 'Kontanter',
-                        ),
-                        maxLines: 1,
-                      ),
-                    ],
-                  ),
-                ),
+                _buildContact(context, boxSize),
               ],
             ),
           ),
@@ -132,6 +63,83 @@ class HomeBlackPart extends StatelessWidget {
       ],
     );
   }
+
+  Widget _buildPortfolio(BuildContext context, double size) {
+    return Box(
+      onTap: () => _moveToPortfolio(context),
+      width: size,
+      height: size,
+      color: Colors.amber,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            height: 20,
+            width: 32,
+            child: Icon(MyIcons.portfolio__1_),
+          ),
+          SizedBox(height: 8),
+          Text(
+            'PORTFOLIO',
+            style: headerText,
+            maxLines: 1,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildResume(BuildContext context, double size) {
+    return Box(
+      onTap: () => _moveToResume(context),
+      width: size,
+      height: size,
+      color: Colors.amber,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            height: 20,
+            width: 32,
+            child: Icon(Icons.account_box),
+          ),
+          SizedBox(height: 8),
+          Text(
+            'RESUME',
+            style: headerText,
+            maxLines: 1,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildContact(BuildContext context, double size) {
+    return Box(
+      onTap: () => _moveToContact(context),
+      width: size,
+      height: size,
+      color: Colors.amber,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            height: 20,
+            width: 32,
+            child: Icon(Icons.comment),
+          ),
+          SizedBox(height: 8),
+          Text(
+            'CONTACT',
+            style: headerText,
+            maxLines: 1,
+          ),
+        ],
+      ),
+    );
+  }
+
+  // FUNCATIONS
 
   _moveToPortfolio(BuildContext context) {
     Navigator.pushNamed(context, portfolioRoute);

@@ -38,3 +38,11 @@ flutter:
     - family:  MyIcons
       fonts:
         - asset: fonts/MyIcons.ttf
+
+    - family: Etna
+      fonts:
+        - asset: fonts/Etna.otf
+    
+    - family: Prime
+      fonts:
+        - asset: fonts/Prime-Regular.otf

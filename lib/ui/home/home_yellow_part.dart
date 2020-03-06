@@ -2,6 +2,7 @@ import 'dart:js' as js;
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio2/themes/text_styles.dart';
 import 'package:portfolio2/ui/common/box/box.dart';
 
 class HomeYellowPart extends StatelessWidget {
@@ -43,19 +44,11 @@ class HomeYellowPart extends StatelessWidget {
                 children: <Widget>[
                   Text(
                     'łukASZ',
-                    style: TextStyle(
-                      fontFamily: 'Kontanter',
-                      fontSize: fontSize,
-                      letterSpacing: 2,
-                    ),
+                    style: homeHeaderText,
                   ),
                   Text(
                     'NieDZiAłek',
-                    style: TextStyle(
-                      fontFamily: 'Kontanter',
-                      fontSize: fontSize,
-                      letterSpacing: 2,
-                    ),
+                    style: homeHeaderText,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 12),
