@@ -18,6 +18,8 @@ class ResumeSummary extends StatelessWidget {
               _buildSeparator(),
               _buildAbout(),
               _buildSeparator(),
+              _buildLanguages(),
+              _buildSeparator(),
               _buildHobbies(),
             ],
           ),
@@ -104,6 +106,31 @@ class ResumeSummary extends StatelessWidget {
     );
   }
 
+  Widget _buildLanguages() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: <Widget>[
+        Text(
+          'LANGUAGES',
+          style: headerText.copyWith(
+            color: Colors.amber[600],
+            fontSize: 16,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        Text('Polish (native)', style: normalText.copyWith(color: Colors.white)),
+        Text('English (C1)', style: normalText.copyWith(color: Colors.white)),
+        Row(
+          children: <Widget>[
+            Text('German (~B1', style: normalText.copyWith(color: Colors.white)),
+            Icon(Icons.arrow_upward, color: Colors.white, size: 14),
+            Text(')', style: normalText.copyWith(color: Colors.white)),
+          ],
+        ),
+      ],
+    );
+  }
+
   Widget _buildHobbies() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -123,8 +150,8 @@ class ResumeSummary extends StatelessWidget {
           children: <Widget>[
             _buildHobbyTile(Icons.book, 'books'),
             _buildHobbyTile(Icons.adb, 'fantasy'),
-            _buildHobbyTile(Icons.directions_car, 'cars'),
             _buildHobbyTile(Icons.accessibility_new, 'gym'),
+            _buildHobbyTile(Icons.directions_car, 'cars'),
           ],
         ),
       ],

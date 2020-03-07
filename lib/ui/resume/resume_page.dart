@@ -3,6 +3,7 @@ import 'package:portfolio2/themes/text_styles.dart';
 import 'package:portfolio2/ui/common/box/no_color_scroll_behaviour.dart';
 import 'package:portfolio2/ui/resume/resume_education.dart';
 import 'package:portfolio2/ui/resume/resume_projects.dart';
+import 'package:portfolio2/ui/resume/resume_skills.dart';
 import 'package:portfolio2/ui/resume/resume_summary.dart';
 import 'package:portfolio2/ui/resume/resume_work_epxerience.dart';
 
@@ -78,6 +79,8 @@ class ResumePage extends StatelessWidget {
                 constraints: BoxConstraints(maxWidth: 600),
                 child: Column(
                   children: <Widget>[
+                    ResumeSkills(),
+                    SizedBox(height: 24),
                     ResumeEducation(),
                     _buildSeparator(),
                     ResumeWorkExperience(),
