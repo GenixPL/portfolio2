@@ -25,12 +25,8 @@ flutter:
 
   assets:
     - assets/
-
+  
   fonts:
-    - family: Azonix
-      fonts:
-        - asset: fonts/Azonix.otf
-    
     - family: Kontanter
       fonts:
         - asset: fonts/Kontanter.otf
@@ -46,11 +42,3 @@ flutter:
     - family: Prime
       fonts:
         - asset: fonts/Prime-Regular.otf
-
-    - family: Ubuntu
-      fonts:
-        - asset: fonts/ubuntu/Ubuntu-Regular.ttf
-        - asset: fonts/ubuntu/Ubuntu-Medium.ttf
-          weight: 500
-        - asset: fonts/ubuntu/Ubuntu-Bold.ttf
-          weight: 700
