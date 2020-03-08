@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:portfolio2/themes/text_styles.dart';
+import 'package:portfolio2/ui/top_bar.dart';
 
 class ContactPage extends StatelessWidget {
   // todo 'do you need help, have a job offer, or wanna go for beer?
@@ -13,47 +14,10 @@ class ContactPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Container(
-            height: 64,
-            width: w,
-            color: Colors.amber,
-            child: _buildTopBar(),
-          ),
+          TopBar(),
           _buildBody(context, w, h - 64),
         ],
       ),
-    );
-  }
-
-  Widget _buildTopBar() {
-    // todo add logic with navigation
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text(
-          'HOME',
-          style: headerText,
-          maxLines: 1,
-        ),
-        SizedBox(width: 32),
-        Text(
-          'PORTFOLIO',
-          style: headerText,
-          maxLines: 1,
-        ),
-        SizedBox(width: 32),
-        Text(
-          'RESUME',
-          style: headerText,
-          maxLines: 1,
-        ),
-        SizedBox(width: 32),
-        Text(
-          'CONTACT',
-          style: headerText.copyWith(fontSize: 20),
-          maxLines: 1,
-        ),
-      ],
     );
   }
 

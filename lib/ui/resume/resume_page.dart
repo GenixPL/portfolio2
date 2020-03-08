@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio2/themes/text_styles.dart';
 import 'package:portfolio2/ui/common/box/no_color_scroll_behaviour.dart';
 import 'package:portfolio2/ui/resume/resume_education.dart';
 import 'package:portfolio2/ui/resume/resume_projects.dart';
 import 'package:portfolio2/ui/resume/resume_skills.dart';
 import 'package:portfolio2/ui/resume/resume_summary.dart';
 import 'package:portfolio2/ui/resume/resume_work_epxerience.dart';
+import 'package:portfolio2/ui/top_bar.dart';
 
 class ResumePage extends StatelessWidget {
   @override
@@ -16,50 +16,13 @@ class ResumePage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Container(
-            height: 64,
-            width: w,
-            color: Colors.amber,
-            child: _buildTopBar(),
-          ),
+          TopBar(),
           Expanded(
             flex: 80,
             child: _buildBody(),
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildTopBar() {
-    // todo add logic with navigation
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text(
-          'HOME',
-          style: headerText,
-          maxLines: 1,
-        ),
-        SizedBox(width: 32),
-        Text(
-          'PORTFOLIO',
-          style: headerText,
-          maxLines: 1,
-        ),
-        SizedBox(width: 32),
-        Text(
-          'RESUME',
-          style: headerText.copyWith(fontSize: 20),
-          maxLines: 1,
-        ),
-        SizedBox(width: 32),
-        Text(
-          'CONTACT',
-          style: headerText,
-          maxLines: 1,
-        ),
-      ],
     );
   }
 
