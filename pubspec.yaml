@@ -24,6 +24,9 @@ flutter:
 
   assets:
     - assets/
+    - assets/placelytics/
+    - assets/pictile/
+    - assets/thg/
 
   fonts:
     - family: Kontanter
