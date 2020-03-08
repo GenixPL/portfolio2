@@ -5,25 +5,39 @@ import 'package:portfolio2/ui/resume/icon_with_text.dart';
 class ResumeSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return IntrinsicWidth(
-      child: Container(
-        constraints: BoxConstraints(maxWidth: 256),
-        color: Colors.black,
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: <Widget>[
-              _buildPhoto(),
-              _buildBasicInfo(),
-              _buildSeparator(),
-              _buildAbout(),
-              _buildSeparator(),
-              _buildLanguages(),
-              _buildSeparator(),
-              _buildHobbies(),
-            ],
+    return Container(
+      width: 256,
+      height: 1050,
+      child: Stack(
+        children: [
+          Container(
+            width: 256,
+            height: 1050,
+            child: Image.asset(
+              'assets/squares_rotated.jpg',
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
+          Container(
+            color: Colors.black87,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: <Widget>[
+                  _buildPhoto(),
+                  SizedBox(height: 16),
+                  _buildBasicInfo(),
+                  _buildSeparator(),
+                  _buildAbout(),
+                  _buildSeparator(),
+                  _buildLanguages(),
+                  _buildSeparator(),
+                  _buildHobbies(),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:portfolio2/themes/text_styles.dart';
-import 'package:portfolio2/ui/top_bar.dart';
+import 'package:portfolio2/ui/top_bar/top_bar.dart';
 
 class ContactPage extends StatelessWidget {
   // todo 'do you need help, have a job offer, or wanna go for beer?

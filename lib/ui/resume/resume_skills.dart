@@ -23,9 +23,11 @@ class _ResumeSkillsState extends State<ResumeSkills> with SingleTickerProviderSt
     );
 
     Tween<double>(begin: 0, end: 100).animate(_controller)
-      ..addListener(() {
-        setState(() {});
-      },);
+      ..addListener(
+        () {
+          setState(() {});
+        },
+      );
 
     Future.delayed(const Duration(milliseconds: 500)).then((_) {
       _controller.forward();
@@ -43,54 +45,68 @@ class _ResumeSkillsState extends State<ResumeSkills> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 198,
-      color: Colors.black,
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: IntrinsicHeight(
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    _buildSkillTile('Flutter', 75),
-                    _buildSkillTile('Android', 40),
-                    _buildSkillTile('iOS', 20),
-                    _buildSkillTile('NativeScript', 10),
-                    _buildThreeDots(),
-                  ],
-                ),
-              ),
-              _buildSeparator(),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    _buildSkillTile('Dart', 80),
-                    _buildSkillTile('Kotlin', 50),
-                    _buildSkillTile('Java', 50),
-                    _buildSkillTile('Python', 35),
-                    _buildSkillTile('Objective-C', 30),
-                    _buildThreeDots(),
-                  ],
-                ),
-              ),
-              _buildSeparator(),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    _buildSkillTile('Rive / Flare', 60),
-                    _buildSkillTile('Gravit Designer', 50),
-                  ],
-                ),
-              ),
-            ],
+    return Stack(
+      children: [
+        LayoutBuilder(
+          builder: (_, constraints) => Container(
+            height: 198,
+            width: constraints.maxWidth,
+            child: Image.asset(
+              'assets/squares.jpg',
+              fit: BoxFit.cover,
+            ),
           ),
         ),
-      ),
+        Container(
+          height: 198,
+          color: Colors.black87,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: IntrinsicHeight(
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        _buildSkillTile('Flutter', 75),
+                        _buildSkillTile('Android', 40),
+                        _buildSkillTile('iOS', 20),
+                        _buildSkillTile('NativeScript', 10),
+                        _buildThreeDots(),
+                      ],
+                    ),
+                  ),
+                  _buildSeparator(),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        _buildSkillTile('Dart', 80),
+                        _buildSkillTile('Kotlin', 50),
+                        _buildSkillTile('Java', 50),
+                        _buildSkillTile('Python', 35),
+                        _buildSkillTile('Objective-C', 30),
+                        _buildThreeDots(),
+                      ],
+                    ),
+                  ),
+                  _buildSeparator(),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        _buildSkillTile('Rive / Flare', 60),
+                        _buildSkillTile('Gravit Designer', 50),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 

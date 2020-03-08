@@ -5,7 +5,8 @@ import 'package:portfolio2/ui/resume/resume_projects.dart';
 import 'package:portfolio2/ui/resume/resume_skills.dart';
 import 'package:portfolio2/ui/resume/resume_summary.dart';
 import 'package:portfolio2/ui/resume/resume_work_epxerience.dart';
-import 'package:portfolio2/ui/top_bar.dart';
+import 'package:portfolio2/ui/top_bar/top_bar.dart';
+
 
 class ResumePage extends StatelessWidget {
   @override
