@@ -44,14 +44,14 @@ class PortfolioPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 800),
+                constraints: BoxConstraints(maxWidth: 232 + ArticleTile.outerWidth * 3.5 + 2 * 16),
                 child: Row(
                   children: <Widget>[
                     SizedBox(
                       width: 200,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
                           Text(
                             'DEVELOPED',
@@ -207,14 +207,14 @@ class PortfolioPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(16),
               child: ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: 800),
+                constraints: BoxConstraints(maxWidth: 232 + ArticleTile.outerWidth * 3.5 + 2 * 16),
                 child: Row(
                   children: <Widget>[
                     SizedBox(
                       width: 200,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: <Widget>[
                           Text(
                             'OTHER',
