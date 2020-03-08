@@ -89,6 +89,20 @@ class HomeYellowPart extends StatelessWidget {
                             child: Image.asset('assets/rive_icon.png'),
                           ),
                         ),
+                        SizedBox(width: 16),
+                        Box(
+                          onTap: _moveToGoodreads,
+                          width: boxSize,
+                          height: boxSize,
+                          color: Color(0xFFECDEC4),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Icon(
+                              FontAwesomeIcons.goodreadsG,
+                              color: Colors.brown[900],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -106,14 +120,18 @@ class HomeYellowPart extends StatelessWidget {
   }
 
   _moveToYoutube() {
-    js.context.callMethod('open', [
-      'https://www.youtube.com/channel/UC8iFSZEpTSbq8ActXXbvyfw?view_as=subscriber'
-    ]);
+    js.context.callMethod('open', ['https://www.youtube.com/channel/UC8iFSZEpTSbq8ActXXbvyfw?view_as=subscriber']);
   }
 
   _moveToRive() {
     js.context.callMethod('open', [
       'https://rive.app/a/Genix/files/recent/all',
+    ]);
+  }
+
+  _moveToGoodreads() {
+    js.context.callMethod('open', [
+      'https://www.goodreads.com/user/show/86850107-lukasz',
     ]);
   }
 }
