@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio2/navigation/routes.dart';
 import 'package:portfolio2/themes/text_styles.dart';
 import 'package:portfolio2/ui/common/no_color_scroll_behaviour.dart';
 import 'package:portfolio2/ui/portfolio/article_tile.dart';
@@ -23,14 +24,12 @@ class PortfolioPage extends StatelessWidget {
         children: <Widget>[
           TopBar(),
           Expanded(
-            child: Scrollbar(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: <Widget>[
-                    _buildUpperPart(w, h / 2),
-                    _buildLowerPart(w, h / 2),
-                  ],
-                ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  _buildUpperPart(context, w, h / 2),
+                  _buildLowerPart(w, h / 2),
+                ],
               ),
             ),
           ),
@@ -39,7 +38,7 @@ class PortfolioPage extends StatelessWidget {
     );
   }
 
-  Widget _buildUpperPart(double w, double h) {
+  Widget _buildUpperPart(BuildContext context, double w, double h) {
     return Container(
       width: w,
       height: h,
@@ -92,101 +91,11 @@ class PortfolioPage extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: <Widget>[
-                              ArticleTile(
-                                child: Stack(
-                                  fit: StackFit.expand,
-                                  children: <Widget>[
-                                    Image.asset(
-                                      'assets/placelytics/logo.jpg',
-                                      fit: BoxFit.cover,
-                                    ),
-                                    Container(color: Colors.black54),
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: <Widget>[
-                                        Container(
-                                          width: ArticleTile.innerWidth,
-                                          height: ArticleTile.innerHeight / 2,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              'Placelytics',
-                                              style: normalText.copyWith(
-                                                color: Colors.white,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              _buildPlacelyticsTile(context),
                               SizedBox(width: 16),
-                              ArticleTile(
-                                child: Stack(
-                                  fit: StackFit.expand,
-                                  children: <Widget>[
-                                    Image.asset(
-                                      'assets/thg/logo.png',
-                                      fit: BoxFit.cover,
-                                    ),
-                                    Container(color: Colors.black54),
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: <Widget>[
-                                        Container(
-                                          width: ArticleTile.innerWidth,
-                                          height: ArticleTile.innerHeight / 2,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              'The Hardest Game',
-                                              style: normalText.copyWith(
-                                                color: Colors.white,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              _buildThgTile(context),
                               SizedBox(width: 16),
-                              ArticleTile(
-                                child: Stack(
-                                  fit: StackFit.expand,
-                                  children: <Widget>[
-                                    Image.asset(
-                                      'assets/pictile/logo.png',
-                                      fit: BoxFit.cover,
-                                    ),
-                                    Container(color: Colors.black54),
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: <Widget>[
-                                        Container(
-                                          width: ArticleTile.innerWidth,
-                                          height: ArticleTile.innerHeight / 2,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              'Pictile',
-                                              style: normalText.copyWith(
-                                                color: Colors.white,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              _buildPictileTile(context),
                             ],
                           ),
                         ),
@@ -201,7 +110,112 @@ class PortfolioPage extends StatelessWidget {
       ),
     );
   }
+  
+  Widget _buildPlacelyticsTile(BuildContext context) {
+    return ArticleTile(
+      onTap: () => Navigator.pushNamed(context, articlePlacelyticsRoute),
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Image.asset(
+            'assets/placelytics/logo.jpg',
+            fit: BoxFit.cover,
+          ),
+          Container(color: Colors.black54),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                width: ArticleTile.innerWidth,
+                height: ArticleTile.innerHeight / 2,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Placelytics',
+                    style: normalText.copyWith(
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 
+  Widget _buildThgTile(BuildContext context) {
+    return ArticleTile(
+      onTap: () => Navigator.pushNamed(context, articleThgRoute),
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Image.asset(
+            'assets/thg/logo.png',
+            fit: BoxFit.cover,
+          ),
+          Container(color: Colors.black54),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                width: ArticleTile.innerWidth,
+                height: ArticleTile.innerHeight / 2,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'The Hardest Game',
+                    style: normalText.copyWith(
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+  
+  Widget _buildPictileTile(BuildContext context) {
+    return ArticleTile(
+      onTap: () => Navigator.pushNamed(context, articlePictileRoute),
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Image.asset(
+            'assets/pictile/logo.png',
+            fit: BoxFit.cover,
+          ),
+          Container(color: Colors.black54),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                width: ArticleTile.innerWidth,
+                height: ArticleTile.innerHeight / 2,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Pictile',
+                    style: normalText.copyWith(
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+  
   Widget _buildLowerPart(double w, double h) {
     return Container(
       width: w,

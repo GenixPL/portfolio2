@@ -10,9 +10,9 @@ import '../../navigation/routes.dart';
 class TopBar extends StatelessWidget {
   
   static double neededHeight(double screenWidth) {
-    if (screenWidth < 646) {
-      return 142;
-    }
+//    if (screenWidth < 646) {
+//      return 142;
+//    }
     
     return 64;
   }
@@ -21,26 +21,26 @@ class TopBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
     
-    if (w < 646) {
-      return Container(
-        height: 142,
-        color: Colors.amber,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(height: 8),
-            _buildHomeButton(context),
-            SizedBox(height: 8),
-            _buildResumeButton(context),
-            SizedBox(height: 8),
-            _buildPortfolioButton(context),
-            SizedBox(height: 8),
-            _buildContactButton(context),
-            SizedBox(height: 8),
-          ],
-        ),
-      );
-    }
+//    if (w < 646) {
+//      return Container(
+//        height: 142,
+//        color: Colors.amber,
+//        child: Column(
+//          mainAxisAlignment: MainAxisAlignment.center,
+//          children: <Widget>[
+//            SizedBox(height: 8),
+//            _buildHomeButton(context),
+//            SizedBox(height: 8),
+//            _buildResumeButton(context),
+//            SizedBox(height: 8),
+//            _buildPortfolioButton(context),
+//            SizedBox(height: 8),
+//            _buildContactButton(context),
+//            SizedBox(height: 8),
+//          ],
+//        ),
+//      );
+//    }
     
     return Container(
       height: 64,

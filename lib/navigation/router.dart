@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio2/navigation/routes.dart';
+import 'package:portfolio2/ui/articles/pictile_page.dart';
+import 'package:portfolio2/ui/articles/placelytics_article.dart';
+import 'package:portfolio2/ui/articles/thg_page.dart';
 import 'package:portfolio2/ui/contact/contact_page.dart';
 import 'package:portfolio2/ui/home/home_page.dart';
 import 'package:portfolio2/ui/portfolio/portfolio_page.dart';
@@ -24,21 +27,39 @@ class Router with NavigatorObserver {
     if (settings.name == homeRoute) {
       return MaterialPageRoute(builder: (_) => HomePage(), settings: settings);
       //
-    } else if (settings.name.contains(portfolioRoute)) {
+    } else if (settings.name == portfolioRoute) {
       return MaterialPageRoute(
         builder: (_) => PortfolioPage(),
         settings: settings,
       );
       //
-    } else if (settings.name.contains(resumeRoute)) {
+    } else if (settings.name == resumeRoute) {
       return MaterialPageRoute(
         builder: (_) => ResumePage(),
         settings: settings,
       );
       //
-    } else if (settings.name.contains(contactRoute)) {
+    } else if (settings.name == contactRoute) {
       return MaterialPageRoute(
         builder: (_) => ContactPage(),
+        settings: settings,
+      );
+      //
+    } else if (settings.name == articleThgRoute) {
+      return MaterialPageRoute(
+        builder: (_) => ThgPage(),
+        settings: settings,
+      );
+      //
+    } else if (settings.name == articlePictileRoute) {
+      return MaterialPageRoute(
+        builder: (_) => PictilePage(),
+        settings: settings,
+      );
+      //
+    } else if (settings.name == articlePlacelyticsRoute) {
+      return MaterialPageRoute(
+        builder: (_) => PlacelyticsPage(),
         settings: settings,
       );
       //
