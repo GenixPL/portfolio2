@@ -1,3 +1,5 @@
+import 'dart:js' as js;
+
 import 'package:flutter/material.dart';
 import 'package:portfolio2/navigation/routes.dart';
 import 'package:portfolio2/themes/text_styles.dart';
@@ -110,7 +112,7 @@ class PortfolioPage extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildPlacelyticsTile(BuildContext context) {
     return ArticleTile(
       onTap: () => Navigator.pushNamed(context, articlePlacelyticsRoute),
@@ -180,7 +182,7 @@ class PortfolioPage extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildPictileTile(BuildContext context) {
     return ArticleTile(
       onTap: () => Navigator.pushNamed(context, articlePictileRoute),
@@ -215,7 +217,7 @@ class PortfolioPage extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildLowerPart(double w, double h) {
     return Container(
       width: w,
@@ -269,69 +271,9 @@ class PortfolioPage extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: <Widget>[
-                              ArticleTile(
-                                child: Stack(
-                                  fit: StackFit.expand,
-                                  children: <Widget>[
-                                    Image.asset(
-                                      'assets/notes.jpg',
-                                      fit: BoxFit.cover,
-                                    ),
-                                    Container(color: Colors.black54),
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: <Widget>[
-                                        Container(
-                                          width: ArticleTile.innerWidth,
-                                          height: ArticleTile.innerHeight / 2,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              'Algorithms',
-                                              style: normalText.copyWith(
-                                                color: Colors.white,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              _buildAlgorithmsTile(),
                               SizedBox(width: 16),
-                              ArticleTile(
-                                child: Stack(
-                                  fit: StackFit.expand,
-                                  children: <Widget>[
-                                    Image.asset(
-                                      'assets/squares.jpg',
-                                      fit: BoxFit.cover,
-                                    ),
-                                    Container(color: Colors.black54),
-                                    Column(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: <Widget>[
-                                        Container(
-                                          width: ArticleTile.innerWidth,
-                                          height: ArticleTile.innerHeight / 2,
-                                          child: Padding(
-                                            padding: const EdgeInsets.all(8.0),
-                                            child: Text(
-                                              'Animations',
-                                              style: normalText.copyWith(
-                                                color: Colors.white,
-                                              ),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
+                              _buildAnimationsTile(),
                             ],
                           ),
                         ),
@@ -341,6 +283,119 @@ class PortfolioPage extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAlgorithmsTile() {
+    return ArticleTile(
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Image.asset(
+            'assets/notes.jpg',
+            fit: BoxFit.cover,
+          ),
+          Container(color: Colors.black54),
+          Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(4, 0, 4, 4),
+                    child: Text(
+                      'NOT IMPLEMENTED',
+                      style: headerWhiteText(),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                width: ArticleTile.innerWidth,
+                height: ArticleTile.innerHeight / 2,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Algorithms',
+                    style: normalText.copyWith(
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildAnimationsTile() {
+    return ArticleTile(
+      onTap: () {
+        js.context.callMethod('open', [
+          'https://rive.app/a/Genix/files/recent/all',
+        ]);
+      },
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          Image.asset(
+            'assets/squares.jpg',
+            fit: BoxFit.cover,
+          ),
+          Container(color: Colors.black54),
+          Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(4, 0, 4, 4),
+                    child: Text(
+                      'NOT IMPLEMENTED',
+                      style: headerWhiteText(),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                width: ArticleTile.innerWidth,
+                height: ArticleTile.innerHeight / 2,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Animations',
+                    style: normalText.copyWith(
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
