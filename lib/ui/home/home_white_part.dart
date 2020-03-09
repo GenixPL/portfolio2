@@ -8,22 +8,19 @@ class HomeWhitePart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(top: h * 0.7),
-      child: ClipPath(
-        clipper: _WhiteClip(),
-        child: Container(
-          width: w,
-          height: h * 0.3,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: <Color>[
-                Colors.white.withOpacity(0.2),
-                Colors.white.withOpacity(1.0),
-              ],
-            ),
+    return ClipPath(
+      clipper: _WhiteClip(),
+      child: Container(
+        width: w,
+        height: h,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: <Color>[
+              Colors.white.withOpacity(0.2),
+              Colors.white.withOpacity(1.0),
+            ],
           ),
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio2/ui/common/box/no_color_scroll_behaviour.dart';
+import 'package:portfolio2/ui/common/no_color_scroll_behaviour.dart';
 import 'package:portfolio2/ui/resume/resume_education.dart';
 import 'package:portfolio2/ui/resume/resume_projects.dart';
 import 'package:portfolio2/ui/resume/resume_skills.dart';

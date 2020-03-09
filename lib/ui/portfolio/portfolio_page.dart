@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio2/themes/text_styles.dart';
-import 'package:portfolio2/ui/common/box/box.dart';
-import 'package:portfolio2/ui/common/box/no_color_scroll_behaviour.dart';
+import 'package:portfolio2/ui/common/no_color_scroll_behaviour.dart';
 import 'package:portfolio2/ui/portfolio/article_tile.dart';
 import 'package:portfolio2/ui/top_bar/top_bar.dart';
 

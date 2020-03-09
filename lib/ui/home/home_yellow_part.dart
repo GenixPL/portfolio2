@@ -1,9 +1,9 @@
 import 'dart:js' as js;
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio2/themes/text_styles.dart';
-import 'package:portfolio2/ui/common/box/box.dart';
+import 'package:portfolio2/ui/home/other/home_yellow_buttons.dart';
+
 
 class HomeYellowPart extends StatelessWidget {
   final double w;
@@ -55,54 +55,8 @@ class HomeYellowPart extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                        Box(
-                          onTap: _moveToGithub,
-                          width: boxSize,
-                          height: boxSize,
-                          color: Colors.black,
-                          child: Icon(
-                            FontAwesomeIcons.github,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(width: 16),
-                        Box(
-                          onTap: _moveToYoutube,
-                          width: boxSize,
-                          height: boxSize,
-                          color: Colors.red,
-                          child: Container(
-                            width: 32,
-                            child: Icon(
-                              FontAwesomeIcons.youtube,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: 16),
-                        Box(
-                          onTap: _moveToRive,
-                          width: boxSize,
-                          height: boxSize,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Image.asset('assets/rive_icon.png'),
-                          ),
-                        ),
-                        SizedBox(width: 16),
-                        Box(
-                          onTap: _moveToGoodreads,
-                          width: boxSize,
-                          height: boxSize,
-                          color: Color(0xFFECDEC4),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Icon(
-                              FontAwesomeIcons.goodreadsG,
-                              color: Colors.brown[900],
-                            ),
-                          ),
-                        ),
+                        HomeYellowButtons(),
+
                       ],
                     ),
                   ),
@@ -115,25 +69,7 @@ class HomeYellowPart extends StatelessWidget {
     );
   }
 
-  _moveToGithub() {
-    js.context.callMethod('open', ['https://github.com/GenixPL']);
-  }
 
-  _moveToYoutube() {
-    js.context.callMethod('open', ['https://www.youtube.com/channel/UC8iFSZEpTSbq8ActXXbvyfw?view_as=subscriber']);
-  }
-
-  _moveToRive() {
-    js.context.callMethod('open', [
-      'https://rive.app/a/Genix/files/recent/all',
-    ]);
-  }
-
-  _moveToGoodreads() {
-    js.context.callMethod('open', [
-      'https://www.goodreads.com/user/show/86850107-lukasz',
-    ]);
-  }
 }
 
 class _YellowClip extends CustomClipper<Path> {

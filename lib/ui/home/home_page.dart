@@ -24,7 +24,10 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 HomeYellowPart(w, h),
-                HomeWhitePart(w, h),
+                Padding(
+                  padding: EdgeInsets.only(top: h * 0.7),
+                  child: HomeWhitePart(w, h * 0.3),
+                ),
                 HomeBlackPart(w, h),
               ],
             ),
