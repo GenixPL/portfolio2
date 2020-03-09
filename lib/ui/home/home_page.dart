@@ -3,13 +3,23 @@ import 'package:portfolio2/ui/common/no_color_scroll_behaviour.dart';
 import 'package:portfolio2/ui/home/home_black_part.dart';
 import 'package:portfolio2/ui/home/home_white_part.dart';
 import 'package:portfolio2/ui/home/home_yellow_part.dart';
+import 'package:portfolio2/ui/home/info_dialog.dart';
 import 'package:portfolio2/ui/home/other/home_black_buttons.dart';
 import 'package:portfolio2/ui/home/other/home_name_header.dart';
 import 'package:portfolio2/ui/home/other/home_yellow_buttons.dart';
 
+bool wasShown = false;
+
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    if (!wasShown) {
+      wasShown = true;
+      Future.delayed(const Duration(seconds: 1)).then((_) {
+        showDialog(context: context, child: InfoDialog());
+      });
+    }
+
     final w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
