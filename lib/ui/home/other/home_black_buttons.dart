@@ -4,44 +4,54 @@ import 'package:portfolio2/ui/home/other/home_black_box.dart';
 
 class HomeBlackButtons extends StatelessWidget {
   final bool isVertical;
-  
-  static final double _padding = 32;
-  static final double _sidePadding = 32;
+
+  static const double _padding = 32;
 
   HomeBlackButtons(this.isVertical);
 
   static double neededWidthForHorizontal() {
-  	final sidePadding = 2 * _sidePadding;
-  	final middlePadding = 2 * _padding;
-  	final buttonsWidth = 3 * HomeBlackBox.width;
-  	
-  	return sidePadding + middlePadding + buttonsWidth;
+    final paddingSize = 4 * _padding;
+    final buttonsWidth = 3 * HomeBlackBox.width;
+
+    return paddingSize + buttonsWidth;
   }
   
+  static double neededHeightForHorizontal() {
+    final paddingSize = 2 * _padding;
+
+    return paddingSize + HomeBlackBox.height;
+  }
+
   @override
   Widget build(BuildContext context) {
     if (isVertical) {
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          _buildResume(context),
-          SizedBox(height: 32),
-          _buildPortfolio(context),
-          SizedBox(height: 32),
-          _buildContact(context),
-        ],
+      return Padding(
+        padding: const EdgeInsets.all(_padding),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            _buildResume(context),
+            SizedBox(height: _padding),
+            _buildPortfolio(context),
+            SizedBox(height: _padding),
+            _buildContact(context),
+          ],
+        ),
       );
     }
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        _buildResume(context),
-        SizedBox(width: 32),
-        _buildPortfolio(context),
-        SizedBox(width: 32),
-        _buildContact(context),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(_padding),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          _buildResume(context),
+          SizedBox(width: _padding),
+          _buildPortfolio(context),
+          SizedBox(width: _padding),
+          _buildContact(context),
+        ],
+      ),
     );
   }
 

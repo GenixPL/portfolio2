@@ -1,9 +1,6 @@
-import 'dart:js' as js;
-
 import 'package:flutter/material.dart';
-import 'package:portfolio2/themes/text_styles.dart';
+import 'package:portfolio2/ui/home/other/home_name_header.dart';
 import 'package:portfolio2/ui/home/other/home_yellow_buttons.dart';
-
 
 class HomeYellowPart extends StatelessWidget {
   final double w;
@@ -13,73 +10,45 @@ class HomeYellowPart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double fontSize = 32;
-    final double boxSize = 48;
-
-    return Stack(
-      children: [
-        ClipPath(
-          clipper: _YellowClip(),
-          child: Container(
-            width: w,
-            height: h,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[
-                  Colors.amber.withOpacity(1.0),
-                  Colors.amber.withOpacity(0.2),
-                ],
-              ),
-            ),
+    return ClipPath(
+      clipper: _YellowClip(w, h),
+      child: Container(
+        width: w,
+        height: h,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: <Color>[
+              Colors.amber.withOpacity(1.0),
+              Colors.amber.withOpacity(0.2),
+            ],
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Column(
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(32),
-              child: Column(
-                children: <Widget>[
-                  Text(
-                    'łukASZ',
-                    style: homeHeaderText,
-                  ),
-                  Text(
-                    'NieDZiAłek',
-                    style: homeHeaderText,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 12),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        HomeYellowButtons(),
-
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            HomeNameHeader(),
+            HomeYellowButtons(),
           ],
         ),
-      ],
+      ),
     );
   }
-
-
 }
 
 class _YellowClip extends CustomClipper<Path> {
+  final double w;
+  final double h;
+  
+  _YellowClip(this.w, this.h);
+  
   @override
   Path getClip(Size size) {
     Path path = Path();
-
-    path.lineTo(0, size.height * 0.5);
-    path.lineTo(size.width, size.height * 0.33);
-    path.lineTo(size.width, 0);
+    
+    path.lineTo(0, h);
+    path.lineTo(w, h - 64);
+    path.lineTo(w, 0);
     path.close();
 
     return path;

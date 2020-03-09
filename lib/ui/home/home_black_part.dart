@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio2/ui/home/other/home_black_buttons.dart';
 
 class HomeBlackPart extends StatelessWidget {
   final double w;
@@ -9,7 +10,7 @@ class HomeBlackPart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipPath(
-      clipper: _BlackClip(),
+      clipper: _BlackClip(w, h),
       child: Container(
         width: w,
         height: h,
@@ -23,20 +24,34 @@ class HomeBlackPart extends StatelessWidget {
             ],
           ),
         ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            if (w > HomeBlackButtons.neededWidthForHorizontal())
+              HomeBlackButtons(false)
+            else
+              HomeBlackButtons(true),
+          ],
+        ),
       ),
     );
   }
 }
 
 class _BlackClip extends CustomClipper<Path> {
+  final double w;
+  final double h;
+
+  _BlackClip(this.w, this.h);
+
   @override
   Path getClip(Size size) {
     Path path = Path();
 
-    path.moveTo(0, size.height * 0.45);
-    path.lineTo(size.width, size.height * 0.25);
-    path.lineTo(size.width, size.height * 0.85);
-    path.lineTo(0, size.height * 0.75);
+    path.moveTo(0, 32);
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height - 32);
     path.close();
 
     return path;

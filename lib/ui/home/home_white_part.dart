@@ -9,7 +9,7 @@ class HomeWhitePart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipPath(
-      clipper: _WhiteClip(),
+      clipper: _WhiteClip(w, h),
       child: Container(
         width: w,
         height: h,
@@ -29,13 +29,18 @@ class HomeWhitePart extends StatelessWidget {
 }
 
 class _WhiteClip extends CustomClipper<Path> {
+  final double w;
+  final double h;
+  
+  _WhiteClip(this.w, this.h);
+  
   @override
   Path getClip(Size size) {
     Path path = Path();
-
-    path.lineTo(size.width, size.height * 0.2);
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
+    
+    path.lineTo(w, 64);
+    path.lineTo(w, h);
+    path.lineTo(0, h);
     path.close();
 
     return path;
