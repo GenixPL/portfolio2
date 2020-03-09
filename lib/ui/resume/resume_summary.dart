@@ -7,12 +7,12 @@ class ResumeSummary extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 256,
-      height: 1050,
+      height: 1090,
       child: Stack(
         children: [
           Container(
             width: 256,
-            height: 1050,
+            height: 1090,
             child: Image.asset(
               'assets/squares_rotated.jpg',
               fit: BoxFit.cover,
@@ -55,7 +55,7 @@ class ResumeSummary extends StatelessWidget {
         ),
         child: ClipOval(
           child: Image.asset(
-            'assets/trump.jpg',
+            'assets/picture.jpg',
             fit: BoxFit.cover,
           ),
         ),
@@ -111,7 +111,7 @@ class ResumeSummary extends StatelessWidget {
           ),
         ),
         Text(
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+          '  I am interested in working as a Flutter dev at the moment.' + '\n  My journey with programming has started 4 years ago and since then I have spent many hours improving my skills.' + '\n  I would like to work abroad (for at least two years) so that I can learn a different language and a new environment.',
           style: normalText.copyWith(
             color: Colors.white,
           ),

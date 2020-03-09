@@ -8,17 +8,32 @@ class PortfolioPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
-    final h = MediaQuery.of(context).size.height - TopBar.height;
+    double h = MediaQuery.of(context).size.height - TopBar.neededHeight(w);
 
-    //todo add minimal h (tile + padding)
-    
+    //todo add minimal h for each part (tile + padding)
+
+    final partMinimalH = 4 * 16 + ArticleTile.outerHeight * 2;
+    if (h < partMinimalH) {
+      h = partMinimalH;
+      print('HUJ');
+    }
 
     return Scaffold(
       body: Column(
         children: <Widget>[
           TopBar(),
-          _buildUpperPart(w, h / 2),
-          _buildLowerPart(w, h / 2),
+          Expanded(
+            child: Scrollbar(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    _buildUpperPart(w, h / 2),
+                    _buildLowerPart(w, h / 2),
+                  ],
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -186,7 +201,7 @@ class PortfolioPage extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildLowerPart(double w, double h) {
     return Container(
       width: w,
@@ -303,7 +318,6 @@ class PortfolioPage extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              
                             ],
                           ),
                         ),

@@ -33,10 +33,6 @@ flutter:
       fonts:
         - asset: fonts/Kontanter.otf
 
-    - family:  MyIcons
-      fonts:
-        - asset: fonts/MyIcons.ttf
-
     - family: Etna
       fonts:
         - asset: fonts/Etna.otf

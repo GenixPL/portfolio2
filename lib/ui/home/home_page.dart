@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio2/ui/common/no_color_scroll_behaviour.dart';
 import 'package:portfolio2/ui/home/home_black_part.dart';
 import 'package:portfolio2/ui/home/home_white_part.dart';
 import 'package:portfolio2/ui/home/home_yellow_part.dart';
@@ -27,31 +28,34 @@ class HomePage extends StatelessWidget {
     }
 
     return Scaffold(
-      body: Scrollbar(
-        child: SingleChildScrollView(
-          child: Container(
-            width: w,
-            height: h,
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  width: w,
-                  height: h,
-                  child: Image.asset(
-                    'assets/background_empty.jpg',
-                    fit: BoxFit.cover,
+      body: ScrollConfiguration(
+        behavior: NoColorScrollBehavior(),
+        child: Scrollbar(
+          child: SingleChildScrollView(
+            child: Container(
+              width: w,
+              height: h,
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    width: w,
+                    height: h,
+                    child: Image.asset(
+                      'assets/background.jpg',
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: yellowBaseHeight()),
-                  child: HomeBlackPart(w, blackHeight),
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: HomeWhitePart(w, whiteHeight()),
-                ),
-                HomeYellowPart(w, yellowHeight()),
-              ],
+                  Padding(
+                    padding: EdgeInsets.only(top: yellowBaseHeight()),
+                    child: HomeBlackPart(w, blackHeight),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: HomeWhitePart(w, whiteHeight()),
+                  ),
+                  HomeYellowPart(w, yellowHeight()),
+                ],
+              ),
             ),
           ),
         ),
