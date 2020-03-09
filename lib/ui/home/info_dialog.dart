@@ -6,7 +6,7 @@ import 'package:portfolio2/ui/common/edge_clip.dart';
 
 class InfoDialog extends StatelessWidget {
   final double w = 400;
-  final double h = 300;
+  final double h = 360;
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +39,21 @@ class InfoDialog extends StatelessWidget {
                             style: normalText.copyWith(color: Colors.white),
                           ),
                         ),
+                        Text(
+                          'PLEASE USE CHROME BROWSER',
+                          style: normalText.copyWith(color: Colors.white),
+                        ),
+	                      Text(
+                          '(other browsers may not be supported)',
+                          style: normalText.copyWith(color: Colors.white),
+                        ),
+                        SizedBox(height: 12),
                         Row(
-	                            mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Icon(FontAwesomeIcons.bug, color: Colors.white),
-	                              SizedBox(width: 32),
-	                              Icon(FontAwesomeIcons.spinner, color: Colors.white),
+                            SizedBox(width: 32),
+                            Icon(FontAwesomeIcons.spinner, color: Colors.white),
                           ],
                         ),
                       ],
