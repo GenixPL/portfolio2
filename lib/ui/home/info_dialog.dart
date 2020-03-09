@@ -35,21 +35,16 @@ class InfoDialog extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(16),
                           child: Text(
-                            'This website was built in Flutter Web, which has many bugs and very poor performance. ' + 'For now its purpose is to present some of my skills, in the future, it will be rewritten in a proper web framework, and then it will also contain additional articles.',
+                            'This website was built in Flutter Web, which has many bugs and very poor performance. ' + 'For now its purpose is to present some of my skills, in the future, it will be rewritten in a proper web framework, and then it will also contain additional articles. Right now not every page is compatible with small screen sizes.',
                             style: normalText.copyWith(color: Colors.white),
                           ),
                         ),
-                        Column(
-	                        mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Row(
+                        Row(
 	                            mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Icon(FontAwesomeIcons.bug, color: Colors.white),
+                          children: <Widget>[
+                            Icon(FontAwesomeIcons.bug, color: Colors.white),
 	                              SizedBox(width: 32),
 	                              Icon(FontAwesomeIcons.spinner, color: Colors.white),
-                              ],
-                            ),
                           ],
                         ),
                       ],
