@@ -111,7 +111,7 @@ class ResumeSummary extends StatelessWidget {
           ),
         ),
         Text(
-          '  I am interested in working as a Flutter dev at the moment.' + '\n  My journey with programming has started 4 years ago and since then I have spent many hours improving my skills.' + '\n  I would like to work abroad (for at least two years) so that I can learn a different language and a new environment.',
+          'I am a Flutter developer.' + '\nMy journey with programming has started 4 years ago and since then I have spent many hours improving my skills.' + '\nI would like to work abroad (for at least two years) so that I can learn a different language and a new environment.',
           style: normalText.copyWith(
             color: Colors.white,
           ),
@@ -136,7 +136,7 @@ class ResumeSummary extends StatelessWidget {
         Text('English (C1)', style: normalText.copyWith(color: Colors.white)),
         Row(
           children: <Widget>[
-            Text('German (~B1', style: normalText.copyWith(color: Colors.white)),
+            Text('German (~A2', style: normalText.copyWith(color: Colors.white)),
             Icon(Icons.arrow_upward, color: Colors.white, size: 14),
             Text(')', style: normalText.copyWith(color: Colors.white)),
           ],

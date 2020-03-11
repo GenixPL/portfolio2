@@ -39,7 +39,7 @@ class ResumeProjects extends StatelessWidget {
 			  ),
 			  SizedBox(height: 4),
 			  Text(
-				  'Technologies: Flutter, Firestore, Firebase Auth, Rive',
+				  'Technologies: Flutter, Firestore, Firebase Auth, Google Maps, Rive',
 				  style: normalText,
 			  ),
 			  SizedBox(height: 4),
